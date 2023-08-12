@@ -69,7 +69,7 @@ public class StudentController {
 
     @GetMapping("/get-students-by-teacher-name/{teacher}")
     public ResponseEntity<List<String>> getStudentsByTeacherName(@PathVariable String teacher){
-        List<String> students = null; // Assign list of student by calling service layer method
+        List<String> students = new ArrayList<>(); // Assign list of student by calling service layer method
 
         for(String teacher1 : pairDb.keySet()){
             if(teacher1.equals(teacher)) students = pairDb.get(teacher1);
@@ -79,7 +79,7 @@ public class StudentController {
 
     @GetMapping("/get-all-students")
     public ResponseEntity<List<String>> getAllStudents(){
-        List<String> students = null; // Assign list of student by calling service layer method
+        List<String> students = new ArrayList<>(); // Assign list of student by calling service layer method
 
         for(Student student : studentDb.values()){
             students.add(student.getName());
